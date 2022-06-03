@@ -1,0 +1,75 @@
+{
+  "name": "Blackbook",
+  "description": "Blank Process",
+  "main": "Main.xaml",
+  "dependencies": {
+    "AWSSDK.ECS": "[3.7.2.58]",
+    "nsoftware.InQB": "[20.0.7705]",
+    "UiPath.Abbyy.Activities": "[1.4.2]",
+    "UiPath.Database.Activities": "[1.4.0]",
+    "UiPath.DataService.Activities": "[21.10.0]",
+    "UiPath.DocumentProcessing.Contracts": "[1.12.0-preview]",
+    "UiPath.DocumentUnderstanding.ML.Activities": "[1.8.0-preview]",
+    "UiPath.Excel.Activities": "[2.10.4]",
+    "UiPath.IntelligentOCR.Activities": "[5.2.1-preview]",
+    "UiPath.Mail.Activities": "[1.10.5]",
+    "UiPath.System.Activities": "[21.4.1]",
+    "UiPath.UIAutomation.Activities": "[21.4.4]",
+    "UiPath.WebAPI.Activities": "[1.9.2]"
+  },
+  "webServices": [],
+  "entitiesStores": [
+    {
+      "serviceDocument": ".entities/EntitiesStore.json",
+      "tenantName": "DefaultTenant",
+      "namespace": "Blackbook",
+      "uniqueReference": "oE1nOND36DEYeSj5GGCHzGskQX8BA1sCNki3+NrV3lE="
+    }
+  ],
+  "schemaVersion": "4.0",
+  "studioVersion": "21.4.4.0",
+  "projectVersion": "1.0.0",
+  "runtimeOptions": {
+    "exceptionHandlerWorkflow": "GlobalHandler.xaml",
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": false
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "modernBehavior": false
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "62e54799-a041-4c2b-a9c0-5d7afc8488e7",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Legacy"
+}
