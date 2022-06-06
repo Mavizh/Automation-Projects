@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1136,1097.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1323.2,1097.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ConfirmIfFruit_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="54">
@@ -74,6 +74,11 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Flowchart sap2010:Annotation.AnnotationText="This workflow uses API to check if the input value is a fruit name or not. &#xA;If the API response contains the word fruit then the given value is considered a fruit.&#xA;If not, business exception is throwed. " DisplayName="ConfirmIfFruit" sap:VirtualizedContainerService.HintSize="633.6,1032.8" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -102,7 +107,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,250.5 300,280.5 303.041666666667,280.5 303.041666666667,290.1</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:HttpClient Body="{x:Null}" ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" BodyFormat="application/xml" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="[&quot;https://api.nal.usda.gov/fdc/v1/foods/search?query=&quot;+in_FruitName.ToLower.Trim+&quot;&amp;pageSize=2&amp;api_key=W1RMEcVF8BZAOLcOJcTJ7ZxzsoUNbEsKr8BJg67n&quot;]" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="GET" Result="[APIResult]" StatusCode="[StatCode]" TimeoutMS="6000">
+      <ui:HttpClient Body="{x:Null}" ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" BodyFormat="application/xml" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="[in_Config(&quot;APIEndPoint&quot;).ToString.Trim.Replace(&quot;{FruitName}&quot;,in_FruitName)]" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="GET" Result="[APIResult]" StatusCode="[StatCode]" TimeoutMS="6000">
         <ui:HttpClient.Attachments>
           <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
         </ui:HttpClient.Attachments>
