@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1136,826.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1064.8,826.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>getReceipe_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="37">
@@ -115,329 +115,377 @@
           <av:PointCollection x:Key="ConnectorLocation">300,330.5 300,373.6</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <TryCatch DisplayName="TryCatch - Get ingredient count" sap:VirtualizedContainerService.HintSize="705.6,3459.2" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <TryCatch DisplayName="TryCatch - Get ingredient count" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="TryCatch_2">
         <TryCatch.Try>
-          <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="IE" DisplayName="Get  Ingredient  count" sap:VirtualizedContainerService.HintSize="668.8,3228" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" UiBrowser="[BrowserElement]" Url="[in_config(&quot;FoodWebsiteURL&quot;).ToString.Trim + in_FruitName.ToLower()]">
-            <ui:OpenBrowser.Body>
-              <ActivityAction x:TypeArguments="x:Object">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="635.2,3125.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="sd:DataTable" Name="ExtractDataTable" />
-                    <Variable x:TypeArguments="x:Int32" Name="RowIndex" />
-                    <Variable x:TypeArguments="x:Int32" Name="Counter" />
-                    <Variable x:TypeArguments="sd:DataTable" Name="OnlyReceipeName" />
-                    <Variable x:TypeArguments="sd:DataTable" Name="Newtable" />
-                    <Variable x:TypeArguments="sd:DataTable" Name="OnlyReceipeNameCopy" />
-                    <Variable x:TypeArguments="x:Int32" Name="IngredientCount" />
-                  </Sequence.Variables>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Extract data from browser" sap:VirtualizedContainerService.HintSize="593.6,494.4" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="f42e1ef566a31f2ee1777af6d9614dc2" Selector="&lt;html title='Search' /&gt;">
-                    <ui:BrowserScope.Body>
-                      <ActivityAction x:TypeArguments="x:Object">
-                        <ActivityAction.Argument>
-                          <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                        </ActivityAction.Argument>
-                        <Sequence DisplayName="Data Scraping Recipes" sap:VirtualizedContainerService.HintSize="375.2,347.2" sap2010:WorkflowViewState.IdRef="Sequence_14">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Structured Data name with link" ExtractMetadata="&lt;extract&gt;&lt;column name='Column1' attr2='href' name2='Column2' attr='text' exact='1'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='article' idx='1' /&gt;&lt;webctrl tag='figure' idx='1' /&gt;&lt;webctrl tag='figcaption' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='h3' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="ExtractData_2" MaxNumberOfResults="0" SimulateClick="True">
-                            <ui:ExtractData.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="15a7123e-8d65-4af2-af9e-593bb8b6f286" InformativeScreenshot="88a8d7e335d5f628b3fe5992f3be1d29" Selector="&lt;webctrl tag='OL' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ol' /&gt;" WaitForReady="COMPLETE">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                              </ui:Target>
-                            </ui:ExtractData.Target>
-                          </ui:ExtractData>
-                          <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[OnlyReceipeName]" DisplayName="Extract Structured Data only name" ExtractMetadata="&lt;extract&gt;&lt;column name='Column1' exact='1' attr='text'&gt;&lt;webctrl tag='li' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="ExtractData_3" MaxNumberOfResults="0" SimulateClick="True">
-                            <ui:ExtractData.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0b09f745-05ef-4a1a-9fbb-dfa095eb7f79" InformativeScreenshot="ef6e35eaaae1f6b9c984c13775a33f3d" Selector="&lt;webctrl tag='OL' /&gt;" WaitForReady="COMPLETE">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                              </ui:Target>
-                            </ui:ExtractData.Target>
-                          </ui:ExtractData>
-                        </Sequence>
-                      </ActivityAction>
-                    </ui:BrowserScope.Body>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </ui:BrowserScope>
-                  <Assign DisplayName="Duplicate Datatable" sap:VirtualizedContainerService.HintSize="593.6,60" sap2010:WorkflowViewState.IdRef="Assign_11">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="sd:DataTable">[OnlyReceipeNameCopy]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="sd:DataTable">[OnlyReceipeName.Clone]</InArgument>
-                    </Assign.Value>
-                  </Assign>
-                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[OnlyReceipeName]" DisplayName="Remove empty rows in onlyname table" sap:VirtualizedContainerService.HintSize="593.6,492.8" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
-                    <ui:ForEachRow.Body>
-                      <ActivityAction x:TypeArguments="sd:DataRow">
-                        <ActivityAction.Argument>
-                          <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
-                        </ActivityAction.Argument>
-                        <If Condition="[CurrentRow(0).ToString.Trim &lt;&gt; &quot;&quot;]" DisplayName="If recipe name extracted is empty in a row" sap:VirtualizedContainerService.HintSize="483.2,376.8" sap2010:WorkflowViewState.IdRef="If_6">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <If.Then>
-                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString.Replace(vbCr, &quot;&quot;).Replace(vbLf, &quot;&quot;).Trim}]" DataTable="[OnlyReceipeNameCopy]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="333.6,188" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
-                          </If.Then>
-                        </If>
-                      </ActivityAction>
-                    </ui:ForEachRow.Body>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </ui:ForEachRow>
-                  <ui:JoinDataTables DataTable1="[ExtractDataTable]" DataTable2="[OnlyReceipeNameCopy]" DisplayName="Join Data Tables" sap:VirtualizedContainerService.HintSize="593.6,60" sap2010:WorkflowViewState.IdRef="JoinDataTables_1" JoinType="Inner" OutputDataTable="[newtable]">
-                    <ui:JoinDataTables.Arguments>
-                      <scg:List x:TypeArguments="ui:JoinOperationArgument" Capacity="4">
-                        <ui:JoinOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EQ">
-                          <ui:JoinOperationArgument.Column1>
-                            <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
-                          </ui:JoinOperationArgument.Column1>
-                          <ui:JoinOperationArgument.Column2>
-                            <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
-                          </ui:JoinOperationArgument.Column2>
-                        </ui:JoinOperationArgument>
-                      </scg:List>
-                    </ui:JoinDataTables.Arguments>
-                  </ui:JoinDataTables>
-                  <ui:MultipleAssign DisplayName="Multiple Assign - initilaise variables" sap:VirtualizedContainerService.HintSize="593.6,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
-                    <ui:MultipleAssign.AssignOperations>
-                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:Int32">[MaxIngre]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:Int32">0</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:Int32">0</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                      </scg:List>
-                    </ui:MultipleAssign.AssignOperations>
-                  </ui:MultipleAssign>
-                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[rowIndex]" DataTable="[newtable]" DisplayName="For Each Row in New Data Table" sap:VirtualizedContainerService.HintSize="593.6,1593.6" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
-                    <ui:ForEachRow.Body>
-                      <ActivityAction x:TypeArguments="sd:DataRow">
-                        <ActivityAction.Argument>
-                          <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
-                        </ActivityAction.Argument>
-                        <If Condition="[CurrentRow(1).ToString.replace(&quot;https://www.taste.com.au&quot;,&quot;&quot;).Substring(1,7) = &quot;recipes&quot;]" DisplayName="If Recipe" sap:VirtualizedContainerService.HintSize="560,1477.6" sap2010:WorkflowViewState.IdRef="If_10">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <If.Then>
-                            <Sequence sap:VirtualizedContainerService.HintSize="524.8,1288.8" sap2010:WorkflowViewState.IdRef="Sequence_26">
-                              <Sequence.Variables>
-                                <Variable x:TypeArguments="x:Boolean" Name="IngrePresent" />
-                              </Sequence.Variables>
+          <ui:RetryScope DisplayName="Retry Scope for get recipe sequence" sap:VirtualizedContainerService.HintSize="475.2,812.8" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3">
+            <ui:RetryScope.ActivityBody>
+              <ActivityAction>
+                <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="433.6,636.8" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                  <TryCatch.Try>
+                    <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" BrowserType="IE" DisplayName="Get  Ingredient  count" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" UiBrowser="[BrowserElement]" Url="[in_config(&quot;FoodWebsiteURL&quot;).ToString.Trim + in_FruitName.ToLower()]">
+                      <ui:OpenBrowser.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="635.2,3125.6" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="sd:DataTable" Name="ExtractDataTable" />
+                              <Variable x:TypeArguments="x:Int32" Name="RowIndex" />
+                              <Variable x:TypeArguments="x:Int32" Name="Counter" />
+                              <Variable x:TypeArguments="sd:DataTable" Name="OnlyReceipeName" />
+                              <Variable x:TypeArguments="sd:DataTable" Name="Newtable" />
+                              <Variable x:TypeArguments="sd:DataTable" Name="OnlyReceipeNameCopy" />
+                              <Variable x:TypeArguments="x:Int32" Name="IngredientCount" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Extract data from browser" sap:VirtualizedContainerService.HintSize="593.6,494.4" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="f42e1ef566a31f2ee1777af6d9614dc2" Selector="&lt;html title='Search' /&gt;">
+                              <ui:BrowserScope.Body>
+                                <ActivityAction x:TypeArguments="x:Object">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                                  </ActivityAction.Argument>
+                                  <Sequence DisplayName="Data Scraping Recipes" sap:VirtualizedContainerService.HintSize="375.2,347.2" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Structured Data name with link" ExtractMetadata="&lt;extract&gt;&lt;column name='Column1' attr2='href' name2='Column2' attr='text' exact='1'&gt;&lt;webctrl tag='li' /&gt;&lt;webctrl tag='article' idx='1' /&gt;&lt;webctrl tag='figure' idx='1' /&gt;&lt;webctrl tag='figcaption' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='h3' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="ExtractData_4" MaxNumberOfResults="0" SimulateClick="True">
+                                      <ui:ExtractData.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="15a7123e-8d65-4af2-af9e-593bb8b6f286" InformativeScreenshot="88a8d7e335d5f628b3fe5992f3be1d29" Selector="&lt;webctrl tag='OL' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ol' /&gt;" WaitForReady="COMPLETE">
+                                          <ui:Target.TimeoutMS>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:Target.TimeoutMS>
+                                        </ui:Target>
+                                      </ui:ExtractData.Target>
+                                    </ui:ExtractData>
+                                    <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[OnlyReceipeName]" DisplayName="Extract Structured Data only name" ExtractMetadata="&lt;extract&gt;&lt;column name='Column1' exact='1' attr='text'&gt;&lt;webctrl tag='li' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="ExtractData_5" MaxNumberOfResults="0" SimulateClick="True">
+                                      <ui:ExtractData.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0b09f745-05ef-4a1a-9fbb-dfa095eb7f79" InformativeScreenshot="ef6e35eaaae1f6b9c984c13775a33f3d" Selector="&lt;webctrl tag='OL' /&gt;" WaitForReady="COMPLETE">
+                                          <ui:Target.TimeoutMS>
+                                            <InArgument x:TypeArguments="x:Int32" />
+                                          </ui:Target.TimeoutMS>
+                                        </ui:Target>
+                                      </ui:ExtractData.Target>
+                                    </ui:ExtractData>
+                                  </Sequence>
+                                </ActivityAction>
+                              </ui:BrowserScope.Body>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate To" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="NavigateTo_2" Url="[CurrentRow(1).tostring()]">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                              </ui:NavigateTo>
-                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="483.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Navigating to - &quot; + CurrentRow(1).tostring()]" />
-                              <ui:UiElementExists DisplayName="Check Intege Count Exists" Exists="[IngrePresent]" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
-                                <ui:UiElementExists.Target>
-                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fd2616ee-c3be-4e4c-a722-061f20c241d9" InformativeScreenshot="1c460c4f4b2343e23b81831187fe2cde" Selector="&lt;webctrl parentid='ingredientsTab' tag='SPAN' /&gt;" TimeoutMS="5000">
-                                    <ui:Target.WaitForReady>
-                                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                                    </ui:Target.WaitForReady>
-                                  </ui:Target>
-                                </ui:UiElementExists.Target>
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                              </ui:UiElementExists>
-                              <If Condition="[IngrePresent]" DisplayName="If ingre count present" sap:VirtualizedContainerService.HintSize="483.2,527.2" sap2010:WorkflowViewState.IdRef="If_8">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <If.Then>
-                                  <Sequence DisplayName="Get Values" sap:VirtualizedContainerService.HintSize="304,338.4" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                            </ui:BrowserScope>
+                            <Assign DisplayName="Duplicate Datatable" sap:VirtualizedContainerService.HintSize="593.6,60" sap2010:WorkflowViewState.IdRef="Assign_15">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="sd:DataTable">[OnlyReceipeNameCopy]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="sd:DataTable">[OnlyReceipeName.Clone]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[OnlyReceipeName]" DisplayName="Remove empty rows in onlyname table" sap:VirtualizedContainerService.HintSize="593.6,492.8" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                              <ui:ForEachRow.Body>
+                                <ActivityAction x:TypeArguments="sd:DataRow">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                                  </ActivityAction.Argument>
+                                  <If Condition="[CurrentRow(0).ToString.Trim &lt;&gt; &quot;&quot;]" DisplayName="If recipe name extracted is empty in a row" sap:VirtualizedContainerService.HintSize="483.2,376.8" sap2010:WorkflowViewState.IdRef="If_11">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get ingredient value" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="GetValue_2">
-                                      <ui:GetValue.Target>
-                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1bf3302a-ec4c-4146-b646-fe351828bcfc" InformativeScreenshot="591e69e7efbf1e654858cdb0a39b2c03" Selector="&lt;webctrl parentid='ingredientsTab' tag='SPAN' /&gt;">
-                                          <ui:Target.TimeoutMS>
-                                            <InArgument x:TypeArguments="x:Int32" />
-                                          </ui:Target.TimeoutMS>
-                                          <ui:Target.WaitForReady>
-                                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                                          </ui:Target.WaitForReady>
-                                        </ui:Target>
-                                      </ui:GetValue.Target>
-                                      <ui:GetValue.Value>
-                                        <OutArgument x:TypeArguments="x:Int32">[IngredientCount]</OutArgument>
-                                      </ui:GetValue.Value>
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                    </ui:GetValue>
-                                    <If Condition="[Convert.ToInt32(IngredientCount) &gt; MaxIngre]" DisplayName="Get Max ingre" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="If_7">
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                      <If.Then>
-                                        <Sequence sap:VirtualizedContainerService.HintSize="304,252.8" sap2010:WorkflowViewState.IdRef="Sequence_22">
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                          <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_12">
-                                            <Assign.To>
-                                              <OutArgument x:TypeArguments="x:Int32">[MaxIngre]</OutArgument>
-                                            </Assign.To>
-                                            <Assign.Value>
-                                              <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(IngredientCount)]</InArgument>
-                                            </Assign.Value>
-                                          </Assign>
-                                          <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_13">
-                                            <Assign.To>
-                                              <OutArgument x:TypeArguments="x:String">[MaxIngreName]</OutArgument>
-                                            </Assign.To>
-                                            <Assign.Value>
-                                              <InArgument x:TypeArguments="x:String">[CurrentRow(0).ToString]</InArgument>
-                                            </Assign.Value>
-                                          </Assign>
-                                        </Sequence>
-                                      </If.Then>
-                                      <If.Else>
-                                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_23">
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                        </Sequence>
-                                      </If.Else>
-                                    </If>
-                                    <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_14">
-                                      <Assign.To>
-                                        <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
-                                      </Assign.To>
-                                      <Assign.Value>
-                                        <InArgument x:TypeArguments="x:Int32">[counter + 1]</InArgument>
-                                      </Assign.Value>
-                                    </Assign>
-                                  </Sequence>
-                                </If.Then>
-                              </If>
-                              <If Condition="[counter &gt;= 3]" DisplayName="If count reached" sap:VirtualizedContainerService.HintSize="483.2,248.8" sap2010:WorkflowViewState.IdRef="If_9">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <If.Then>
-                                  <ui:Break sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Break_2" />
-                                </If.Then>
-                                <If.Else>
-                                  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_25">
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                  </Sequence>
-                                </If.Else>
-                              </If>
-                            </Sequence>
-                          </If.Then>
-                          <If.Else>
-                            <Sequence sap:VirtualizedContainerService.HintSize="200,84.8" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                    <If.Then>
+                                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).ToString.Replace(vbCr, &quot;&quot;).Replace(vbLf, &quot;&quot;).Trim}]" DataTable="[OnlyReceipeNameCopy]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="333.6,188" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
+                                    </If.Then>
+                                  </If>
+                                </ActivityAction>
+                              </ui:ForEachRow.Body>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                            </Sequence>
-                          </If.Else>
-                        </If>
+                            </ui:ForEachRow>
+                            <ui:JoinDataTables DataTable1="[ExtractDataTable]" DataTable2="[OnlyReceipeNameCopy]" DisplayName="Join Data Tables" sap:VirtualizedContainerService.HintSize="593.6,60" sap2010:WorkflowViewState.IdRef="JoinDataTables_2" JoinType="Inner" OutputDataTable="[newtable]">
+                              <ui:JoinDataTables.Arguments>
+                                <scg:List x:TypeArguments="ui:JoinOperationArgument" Capacity="4">
+                                  <ui:JoinOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="EQ">
+                                    <ui:JoinOperationArgument.Column1>
+                                      <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+                                    </ui:JoinOperationArgument.Column1>
+                                    <ui:JoinOperationArgument.Column2>
+                                      <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+                                    </ui:JoinOperationArgument.Column2>
+                                  </ui:JoinOperationArgument>
+                                </scg:List>
+                              </ui:JoinDataTables.Arguments>
+                            </ui:JoinDataTables>
+                            <ui:MultipleAssign DisplayName="Multiple Assign - initilaise variables" sap:VirtualizedContainerService.HintSize="593.6,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                              <ui:MultipleAssign.AssignOperations>
+                                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                                    <ui:AssignOperation.To>
+                                      <OutArgument x:TypeArguments="x:Int32">[MaxIngre]</OutArgument>
+                                    </ui:AssignOperation.To>
+                                    <ui:AssignOperation.Value>
+                                      <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                                    </ui:AssignOperation.Value>
+                                  </ui:AssignOperation>
+                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                                    <ui:AssignOperation.To>
+                                      <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+                                    </ui:AssignOperation.To>
+                                    <ui:AssignOperation.Value>
+                                      <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                                    </ui:AssignOperation.Value>
+                                  </ui:AssignOperation>
+                                </scg:List>
+                              </ui:MultipleAssign.AssignOperations>
+                            </ui:MultipleAssign>
+                            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[rowIndex]" DataTable="[newtable]" DisplayName="For Each Row in New Data Table" sap:VirtualizedContainerService.HintSize="593.6,1593.6" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
+                              <ui:ForEachRow.Body>
+                                <ActivityAction x:TypeArguments="sd:DataRow">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                                  </ActivityAction.Argument>
+                                  <If Condition="[CurrentRow(1).ToString.replace(&quot;https://www.taste.com.au&quot;,&quot;&quot;).Substring(1,7) = &quot;recipes&quot;]" DisplayName="If Recipe" sap:VirtualizedContainerService.HintSize="560,1477.6" sap2010:WorkflowViewState.IdRef="If_15">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <If.Then>
+                                      <Sequence sap:VirtualizedContainerService.HintSize="524.8,1288.8" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                        <Sequence.Variables>
+                                          <Variable x:TypeArguments="x:Boolean" Name="IngrePresent" />
+                                        </Sequence.Variables>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:NavigateTo Browser="{x:Null}" DisplayName="Navigate To" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="NavigateTo_3" Url="[CurrentRow(1).tostring()]">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:NavigateTo>
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="483.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Trace" Message="[&quot;Navigating to - &quot; + CurrentRow(1).tostring()]" />
+                                        <ui:UiElementExists DisplayName="Check Intege Count Exists" Exists="[IngrePresent]" sap:VirtualizedContainerService.HintSize="483.2,107.2" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                                          <ui:UiElementExists.Target>
+                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fd2616ee-c3be-4e4c-a722-061f20c241d9" InformativeScreenshot="1c460c4f4b2343e23b81831187fe2cde" Selector="&lt;webctrl parentid='ingredientsTab' tag='SPAN' /&gt;" TimeoutMS="5000">
+                                              <ui:Target.WaitForReady>
+                                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                                              </ui:Target.WaitForReady>
+                                            </ui:Target>
+                                          </ui:UiElementExists.Target>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:UiElementExists>
+                                        <If Condition="[IngrePresent]" DisplayName="If ingre count present" sap:VirtualizedContainerService.HintSize="483.2,527.2" sap2010:WorkflowViewState.IdRef="If_13">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <If.Then>
+                                            <Sequence DisplayName="Get Values" sap:VirtualizedContainerService.HintSize="304,338.4" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get ingredient value" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="GetValue_3">
+                                                <ui:GetValue.Target>
+                                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1bf3302a-ec4c-4146-b646-fe351828bcfc" InformativeScreenshot="591e69e7efbf1e654858cdb0a39b2c03" Selector="&lt;webctrl parentid='ingredientsTab' tag='SPAN' /&gt;">
+                                                    <ui:Target.TimeoutMS>
+                                                      <InArgument x:TypeArguments="x:Int32" />
+                                                    </ui:Target.TimeoutMS>
+                                                    <ui:Target.WaitForReady>
+                                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                    </ui:Target.WaitForReady>
+                                                  </ui:Target>
+                                                </ui:GetValue.Target>
+                                                <ui:GetValue.Value>
+                                                  <OutArgument x:TypeArguments="x:Int32">[IngredientCount]</OutArgument>
+                                                </ui:GetValue.Value>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ui:GetValue>
+                                              <If Condition="[Convert.ToInt32(IngredientCount) &gt; MaxIngre]" DisplayName="Get Max ingre" sap:VirtualizedContainerService.HintSize="262.4,52.8" sap2010:WorkflowViewState.IdRef="If_12">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <If.Then>
+                                                  <Sequence sap:VirtualizedContainerService.HintSize="304,252.8" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:Int32">[MaxIngre]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32(IngredientCount)]</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                    <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="x:String">[MaxIngreName]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="x:String">[CurrentRow(0).ToString]</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                  </Sequence>
+                                                </If.Then>
+                                                <If.Else>
+                                                  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Sequence>
+                                                </If.Else>
+                                              </If>
+                                              <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="x:Int32">[counter + 1]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                            </Sequence>
+                                          </If.Then>
+                                        </If>
+                                        <If Condition="[counter &gt;= 3]" DisplayName="If count reached" sap:VirtualizedContainerService.HintSize="483.2,248.8" sap2010:WorkflowViewState.IdRef="If_14">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <If.Then>
+                                            <ui:Break sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Break_3" />
+                                          </If.Then>
+                                          <If.Else>
+                                            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </Sequence>
+                                          </If.Else>
+                                        </If>
+                                      </Sequence>
+                                    </If.Then>
+                                    <If.Else>
+                                      <Sequence sap:VirtualizedContainerService.HintSize="200,84.8" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </Sequence>
+                                    </If.Else>
+                                  </If>
+                                </ActivityAction>
+                              </ui:ForEachRow.Body>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:ForEachRow>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:OpenBrowser.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:OpenBrowser>
+                  </TryCatch.Try>
+                  <TryCatch.Catches>
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,472" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="s:Exception">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                        </ActivityAction.Argument>
+                        <Sequence sap:VirtualizedContainerService.HintSize="375.2,401.6" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Error" Message="[&quot;Error in Get Recipe sequence. Attempting to retry. Message:  &quot; + exception.Message]" />
+                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke KillAllProcesses workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\KillAllProcesses.xaml">
+                            <ui:InvokeWorkflowFile.Arguments>
+                              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                            </ui:InvokeWorkflowFile.Arguments>
+                          </ui:InvokeWorkflowFile>
+                          <Rethrow sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Rethrow_3" />
+                        </Sequence>
                       </ActivityAction>
-                    </ui:ForEachRow.Body>
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                  </ui:ForEachRow>
-                </Sequence>
+                    </Catch>
+                  </TryCatch.Catches>
+                </TryCatch>
               </ActivityAction>
-            </ui:OpenBrowser.Body>
+            </ui:RetryScope.ActivityBody>
+            <ui:RetryScope.Condition>
+              <ActivityFunc x:TypeArguments="x:Boolean" />
+            </ui:RetryScope.Condition>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-          </ui:OpenBrowser>
+          </ui:RetryScope>
         </TryCatch.Try>
         <TryCatch.Catches>
-          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="672,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="478.4,22.4" sap2010:WorkflowViewState.IdRef="Catch`1_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -454,7 +502,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;Error getting ingredient count from wbsite.&quot;+Exception.Message+&quot; at Source: &quot;+Exception.Source]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;Error getting ingredient count nd recipe name after all retries. &quot;]" />
                 <Rethrow DisplayName="Rethrow exception" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
               </Sequence>
             </ActivityAction>
